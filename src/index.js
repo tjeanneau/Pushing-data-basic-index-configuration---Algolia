@@ -35,12 +35,12 @@ console.log(`Dataset length is ${dataset.length}`);
     let n = 0;
     let chunkSize = 1000;
     while (dataset.length > 0) {
-      let chunks = [];
+      let chunk = [];
       chunkSize = dataset.length < chunkSize ? dataset.length : chunkSize;
-      for (let i = 0; i < chunkSize; i += 1) chunks.push(dataset.shift());
-      await index.addObjects(chunks);
+      for (let i = 0; i < chunkSize; i += 1) chunk.push(dataset.shift());
+      await index.addObjects(chunk);
       n++;
-      console.log(`Chunk n°${n} of ${chunks.length} data has been pushed`);
+      console.log(`Chunk n°${n} of ${chunk.length} data has been pushed`);
     }
     console.log(`All dataset pushed in index "ecom"!`);
   } catch (err) {
